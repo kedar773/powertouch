@@ -2,13 +2,13 @@
 
 <div align="center">
 
-[![Latest Release](https://img.shields.io/github/v/release/kedar773/powertouch?style=for-the-badge&color=6750A4)](https://github.com/kedar773/powertouch/releases/latest)
+[![Latest Release](https://img.shields.io/github/v/release/kedar773/powertouch?style=for-the-badge&color=BB86FC)](https://github.com/kedar773/powertouch/releases/latest)
 [![Platform](https://img.shields.io/badge/Platform-Android%209%20to%2015%2B-brightgreen?style=for-the-badge)](https://github.com/kedar773/powertouch)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 <br/>
 
-### 📲 [👉 Click Here to Download PowerTouch.apk (Latest v1.0.0) 👈](https://github.com/kedar773/powertouch/releases/download/v1.0.0/PowerTouch.apk)
+### 📲 [👉 Click Here to Download PowerTouch.apk (Latest v1.0.1) 👈](https://github.com/kedar773/powertouch/releases/download/v1.0.1/PowerTouch.apk)
 
 *Direct download link for Google Pixel 7a and any Android phone running Android 9 through 15+*
 
@@ -27,6 +27,8 @@ Most power button replacement apps on the Play Store rely on obsolete Device Adm
 - **Keeps Biometric Fingerprint Unlock fully working** every time you lock.
 - Features both a **Moveable Floating Icon** and a **Stealth Side Drawer Tile** (edge slider).
 - Ultra-low battery consumption: 0% idle background drain, zero polling loops.
+- **OLED Dark Theme**: Deep dark `#121214` background with razor-sharp high contrast typography for optimal readability and battery savings on Pixel's OLED display.
+- **In-App Update Checker**: Scan this GitHub repository directly from the app and download newer releases with one tap.
 
 ---
 
@@ -49,10 +51,14 @@ Most power button replacement apps on the Play Store rely on obsolete Device Adm
 * **Side Placement**: Choose between **Right Edge** or **Left Edge** in settings.
 * **Auto-Retract**: Retracts back into the screen border after 3.5 seconds of idle time.
 
-### 3. 📳 Haptic Feedback
+### 3. 🔄 In-App GitHub Update Scanner
+* Check for updates directly inside the app with a single tap.
+* Connects to GitHub's public API, checks release tags, displays the changelog, and offers a 1-tap download link for newer versions.
+
+### 4. 📳 Haptic Feedback
 * Predefined tactile vibrations for tap (`EFFECT_CLICK`) and long-press (`EFFECT_HEAVY_CLICK`), toggleable in settings.
 
-### 4. 🎛️ Pixel Quick Settings Shade Tile
+### 5. 🎛️ Pixel Quick Settings Shade Tile
 * Adds a dedicated **Lock Screen** tile in your pull-down Quick Settings shade. Swipe down from top of screen anytime and tap to lock.
 
 ---
@@ -60,9 +66,9 @@ Most power button replacement apps on the Play Store rely on obsolete Device Adm
 ## 📥 Installation Guide
 
 ### Option A: Direct Download on Phone (Easiest)
-1. On your Pixel 7a, open Chrome and download [**PowerTouch.apk**](https://github.com/kedar773/powertouch/releases/download/v1.0.0/PowerTouch.apk).
+1. On your Pixel 7a, download [**PowerTouch.apk (v1.0.1)**](https://github.com/kedar773/powertouch/releases/download/v1.0.1/PowerTouch.apk).
 2. Tap the downloaded file in your notifications or Files app.
-3. If prompted, allow "Install from Unknown Sources".
+3. If Google Play Protect displays a warning regarding Accessibility Services (Google's Enhanced Fraud Protection for sideloaded web APKs), temporarily pause Play Protect scanning in Google Play Store settings, or install via ADB.
 4. Tap **Install** and open **PowerTouch**.
 
 ### Option B: Install via ADB (USB Debugging)
@@ -81,6 +87,7 @@ When launching PowerTouch for the first time, grant the two permissions directly
    - Tap **"Enable"** next to Accessibility Service.
    - You will be taken to *Settings > Accessibility*.
    - Tap **PowerTouch** and toggle it **ON**.
+   *(If greyed out as "Restricted setting" on Android 13/14/15, go to phone Settings > Apps > PowerTouch > 3 dots ⋮ in top-right > "Allow restricted settings" and verify your PIN).*
 2. **Display Over Other Apps** *(Required for Floating Button & Edge Handle)*:
    - Tap **"Grant"** next to Display Over Other Apps.
    - Toggle **Allow display over other apps** for PowerTouch.
@@ -89,20 +96,12 @@ When launching PowerTouch for the first time, grant the two permissions directly
 
 ---
 
-## 🛠️ Tech Stack & Architecture
-
-- **Language**: Kotlin 2.0+
-- **Min SDK**: API 28 (Android 9.0)
-- **Target SDK**: API 35 (Android 15)
-- **UI Framework**: Material Design 3 (Material Components)
-- **Key APIs**:
-  - `AccessibilityService` (`GLOBAL_ACTION_LOCK_SCREEN`, `GLOBAL_ACTION_POWER_DIALOG`)
-  - `WindowManager` with `TYPE_APPLICATION_OVERLAY`
-  - `TileService` (`QS_TILE`)
-  - `Vibrator` / `VibratorManager` (`VibrationEffect`)
-
----
-
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+<br/>
+
+<div align="center">
+<b>made by kedar and for kedar</b>
+</div>
