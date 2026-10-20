@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PowerTouch</string>
+    <string name="tile_name">Lock Screen</string>
+    <string name="accessibility_service_description">PowerTouch requires Accessibility Service access to lock your screen and open the power menu when your physical power button is broken.</string>
+</resources>

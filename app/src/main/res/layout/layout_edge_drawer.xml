@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edgeRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Expanded Slide-out Panel (when on right side, panel is to the left of handle) -->
+    <LinearLayout
+        android:id="@+id/panelExpanded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_drawer_panel"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center"
+        android:elevation="8dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btnDrawerLock"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_floating_button"
+            android:contentDescription="Lock Screen"
+            android:padding="11dp"
+            android:src="@drawable/ic_power" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/tvDrawerHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap: Lock\nHold: Power"
+            android:textColor="#CCFFFFFF"
+            android:textSize="11sp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="2dp"
+            android:paddingEnd="8dp" />
+
+    </LinearLayout>
+
+    <!-- Edge Handle Bar -->
+    <View
+        android:id="@+id/edgeHandle"
+        android:layout_width="14dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_drawer_handle" />
+
+</LinearLayout>
