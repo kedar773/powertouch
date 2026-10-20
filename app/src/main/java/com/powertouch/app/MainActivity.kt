@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
@@ -14,9 +13,13 @@ import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.powertouch.app.databinding.ActivityMainBinding
 import com.powertouch.app.service.PowerAccessibilityService
 import com.powertouch.app.util.HapticHelper
+import com.powertouch.app.util.UpdateChecker
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +31,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupWindowInsets()
         initViews()
         setupListeners()
+    }
+
+    private fun setupWindowInsets() {
+        // Prevent layout from drawing underneath system status bar & nav bar
+        ViewCompat.setOnApplyWindowInsetsListener(binding.coordinatorRoot) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.appBarLayout.updatePadding(top = systemBars.top)
+            binding.nestedScrollView.updatePadding(bottom = systemBars.bottom)
+            insets
+        }
     }
 
     override fun onResume() {
@@ -75,6 +89,9 @@ class MainActivity : AppCompatActivity() {
 
         // Feedback switch
         binding.switchVibration.isChecked = prefs.isVibrationEnabled
+
+        // Version info
+        binding.tvCurrentVersion.text = "Current Version: v${BuildConfig.VERSION_NAME}"
     }
 
     private fun setupListeners() {
@@ -182,6 +199,49 @@ class MainActivity : AppCompatActivity() {
                     "Please enable PowerTouch Accessibility Service first",
                     Toast.LENGTH_SHORT
                 ).show()
+            }
+        }
+
+        // Check for updates
+        binding.btnCheckUpdate.setOnClickListener {
+            performUpdateCheck()
+        }
+    }
+
+    private fun performUpdateCheck() {
+        binding.pbUpdateLoading.visibility = View.VISIBLE
+        binding.btnCheckUpdate.isEnabled = false
+        binding.tvUpdateStatus.text = "Checking GitHub repository for updates..."
+        binding.tvUpdateNotes.visibility = View.GONE
+        binding.btnDownloadUpdate.visibility = View.GONE
+
+        UpdateChecker.checkForUpdate { result ->
+            binding.pbUpdateLoading.visibility = View.GONE
+            binding.btnCheckUpdate.isEnabled = true
+
+            result.onSuccess { info ->
+                if (info.isUpdateAvailable) {
+                    binding.tvUpdateStatus.text = "🎉 New version v${info.latestVersion} available!"
+                    binding.tvUpdateStatus.setTextColor(ContextCompat.getColor(this, R.color.primary))
+
+                    if (info.releaseNotes.isNotBlank()) {
+                        binding.tvUpdateNotes.text = "Changelog:\n${info.releaseNotes}"
+                        binding.tvUpdateNotes.visibility = View.VISIBLE
+                    }
+
+                    binding.btnDownloadUpdate.visibility = View.VISIBLE
+                    binding.btnDownloadUpdate.setOnClickListener {
+                        val downloadUrl = info.downloadUrl ?: "https://github.com/kedar773/powertouch/releases/latest"
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl))
+                        startActivity(intent)
+                    }
+                } else {
+                    binding.tvUpdateStatus.text = "✓ You are using the latest version (v${info.currentVersion})"
+                    binding.tvUpdateStatus.setTextColor(ContextCompat.getColor(this, R.color.success))
+                }
+            }.onFailure { err ->
+                binding.tvUpdateStatus.text = "Failed to check updates: ${err.localizedMessage ?: "Unknown error"}"
+                binding.tvUpdateStatus.setTextColor(ContextCompat.getColor(this, R.color.error))
             }
         }
     }

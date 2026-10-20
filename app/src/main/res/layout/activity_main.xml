@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA">
+    android:background="@color/bg_main">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:elevation="1dp">
+        android:background="@color/bg_main"
+        app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="PowerTouch"
-            app:titleTextColor="#1F1F1F"
+            app:titleTextColor="@color/text_primary"
             app:subtitle="Virtual Power Button for Pixel 7a"
-            app:subtitleTextColor="#666666" />
+            app:subtitleTextColor="@color/text_secondary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -40,10 +43,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_bg"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                app:cardElevation="0dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E0E0E0">
+                app:strokeColor="@color/card_stroke">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -56,15 +60,15 @@
                         android:layout_height="wrap_content"
                         android:text="System Permissions"
                         android:textStyle="bold"
-                        android:textColor="#1F1F1F"
+                        android:textColor="@color/text_primary"
                         android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Both permissions are required so PowerTouch can lock your phone and display over other apps."
-                        android:textColor="#666666"
+                        android:text="Required permissions so PowerTouch can lock your phone and display over other apps."
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
 
                     <!-- Accessibility Service Row -->
@@ -93,7 +97,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Accessibility Service"
                                 android:textStyle="bold"
-                                android:textColor="#1F1F1F"
+                                android:textColor="@color/text_primary"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -101,7 +105,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Disabled (Locks screen &amp; Power menu)"
-                                android:textColor="#B3261E"
+                                android:textColor="@color/error"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -119,7 +123,7 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
-                        android:background="#EEEEEE" />
+                        android:background="@color/divider_color" />
 
                     <!-- Overlay Permission Row -->
                     <LinearLayout
@@ -146,7 +150,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Display Over Other Apps"
                                 android:textStyle="bold"
-                                android:textColor="#1F1F1F"
+                                android:textColor="@color/text_primary"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -154,7 +158,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Not Granted (Shows floating button)"
-                                android:textColor="#B3261E"
+                                android:textColor="@color/error"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -173,7 +177,7 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
-                        android:background="#EEEEEE" />
+                        android:background="@color/divider_color" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -192,14 +196,14 @@
                                 android:layout_height="wrap_content"
                                 android:text="Ignore Battery Optimization"
                                 android:textStyle="bold"
-                                android:textColor="#1F1F1F"
+                                android:textColor="@color/text_primary"
                                 android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Prevents Android from killing the virtual button"
-                                android:textColor="#666666"
+                                android:text="Prevents Android from stopping the virtual button"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -221,10 +225,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_bg"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                app:cardElevation="0dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E0E0E0">
+                app:strokeColor="@color/card_stroke">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -249,14 +254,14 @@
                                 android:layout_height="wrap_content"
                                 android:text="Floating Power Icon"
                                 android:textStyle="bold"
-                                android:textColor="#1F1F1F"
+                                android:textColor="@color/text_primary"
                                 android:textSize="17sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Draggable circular button anywhere on screen"
-                                android:textColor="#666666"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -279,7 +284,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Icon Size: 56 dp"
-                            android:textColor="#333333"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <com.google.android.material.slider.Slider
@@ -297,7 +302,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Idle Opacity: 30% (OLED burn-in prevention)"
-                            android:textColor="#333333"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <com.google.android.material.slider.Slider
@@ -315,7 +320,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Active Opacity: 90%"
-                            android:textColor="#333333"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <com.google.android.material.slider.Slider
@@ -338,10 +343,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_bg"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                app:cardElevation="0dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E0E0E0">
+                app:strokeColor="@color/card_stroke">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -366,14 +372,14 @@
                                 android:layout_height="wrap_content"
                                 android:text="Side Drawer Tile"
                                 android:textStyle="bold"
-                                android:textColor="#1F1F1F"
+                                android:textColor="@color/text_primary"
                                 android:textSize="17sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Hides at screen edge; slide inward to draw out"
-                                android:textColor="#666666"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -395,7 +401,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Edge Position"
-                            android:textColor="#333333"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <RadioGroup
@@ -410,6 +416,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:checked="true"
+                                android:textColor="@color/text_primary"
                                 android:text="Right Edge" />
 
                             <RadioButton
@@ -417,6 +424,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="24dp"
+                                android:textColor="@color/text_primary"
                                 android:text="Left Edge" />
 
                         </RadioGroup>
@@ -427,7 +435,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Handle Idle Opacity: 30%"
-                            android:textColor="#333333"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <com.google.android.material.slider.Slider
@@ -444,7 +452,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:text="💡 Tip: Drag the handle up or down along the edge to place it wherever is most comfortable and avoids your Pixel back gesture."
-                            android:textColor="#777777"
+                            android:textColor="@color/text_tertiary"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -458,10 +466,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_bg"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                app:cardElevation="0dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E0E0E0">
+                app:strokeColor="@color/card_stroke">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -474,7 +483,7 @@
                         android:layout_height="wrap_content"
                         android:text="Gestures &amp; Feedback"
                         android:textStyle="bold"
-                        android:textColor="#1F1F1F"
+                        android:textColor="@color/text_primary"
                         android:textSize="17sp" />
 
                     <!-- Vibration Switch -->
@@ -495,14 +504,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Haptic Vibration"
-                                android:textColor="#1F1F1F"
+                                android:textColor="@color/text_primary"
                                 android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Vibrate on tap and long press"
-                                android:textColor="#666666"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -519,7 +528,7 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
-                        android:background="#EEEEEE" />
+                        android:background="@color/divider_color" />
 
                     <!-- Gesture Summary -->
                     <TextView
@@ -527,7 +536,7 @@
                         android:layout_height="wrap_content"
                         android:text="Action Mapping"
                         android:textStyle="bold"
-                        android:textColor="#333333"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp" />
 
                     <TextView
@@ -535,7 +544,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="• Single Tap: Lock Screen (biometric unlock stays working)\n• Long Press (0.5s): System Power Menu (Restart/Power off)\n• Drag: Move anywhere on screen"
-                        android:textColor="#555555"
+                        android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:lineSpacingExtra="3dp" />
 
@@ -547,11 +556,12 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_bg"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                app:cardElevation="0dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E0E0E0">
+                app:strokeColor="@color/card_stroke">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -564,7 +574,7 @@
                         android:layout_height="wrap_content"
                         android:text="Test Actions"
                         android:textStyle="bold"
-                        android:textColor="#1F1F1F"
+                        android:textColor="@color/text_primary"
                         android:textSize="17sp" />
 
                     <TextView
@@ -572,7 +582,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:text="Test that Accessibility Service actions work on your Pixel 7a:"
-                        android:textColor="#666666"
+                        android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
                     <LinearLayout
@@ -603,6 +613,121 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 6: Check for Updates -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUpdates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/card_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="App Updates"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tvCurrentVersion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Current Version: v1.0.1"
+                        android:textColor="@color/primary"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvUpdateStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Tap below to check the GitHub repository for updates."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvUpdateNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="#15151B"
+                        android:padding="10dp"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <ProgressBar
+                        android:id="@+id/pbUpdateLoading"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:indeterminate="true"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCheckUpdate"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Check for Updates" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDownloadUpdate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="Download Update"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Footer: Made by Kedar and for Kedar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="32dp">
+
+                <TextView
+                    android:id="@+id/tvFooter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="made by kedar and for kedar"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
